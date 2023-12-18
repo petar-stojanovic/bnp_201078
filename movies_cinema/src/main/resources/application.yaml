@@ -1,0 +1,31 @@
+## PostgreSQL
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_movies_cinema
+    username: postgres
+    password: postgres
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hbm2ddl:
+      auto: update
+    show-sql: true
+
+## default connection pool
+#spring.datasource.hikari.connectionTimeout=20000
+#spring.datasource.hikari.maximumPoolSize=5
+
+
+
+#spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.show-sql=true
+
+logging:
+  level:
+    sql: debug
+
+#spring.jpa.hibernate.ddl-auto=validate
