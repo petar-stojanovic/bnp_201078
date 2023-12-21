@@ -9,7 +9,7 @@ data class Customer(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_customer")
-    val id: Long = 0,
+    val id: Int,
 
     @Column(name = "first_name")
     val firstName: String,

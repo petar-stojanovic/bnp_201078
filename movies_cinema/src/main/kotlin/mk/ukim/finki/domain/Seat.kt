@@ -10,11 +10,11 @@ data class Seat(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_seat")
-    val seatId: Long,
+    val seatId: Int,
 
     @Id
     @Column(name = "id_hall")
-    val hallId: Long,
+    val hallId: Int,
 
     @Column(name = "seat_row", nullable = false)
     val seatRow: Int,
@@ -24,6 +24,6 @@ data class Seat(
 )
 
 class SeatId(
-    val seatId: Long,
-    val hallId: Long
+    val seatId: Int,
+    val hallId: Int
 ) : Serializable

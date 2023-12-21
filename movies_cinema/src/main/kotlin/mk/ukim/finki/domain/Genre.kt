@@ -8,8 +8,8 @@ data class Genre(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_movie")
-    val id: Long,
+    @Column(name = "id_genre")
+    val id: Int,
 
     @Column(name = "name")
     val name: String,

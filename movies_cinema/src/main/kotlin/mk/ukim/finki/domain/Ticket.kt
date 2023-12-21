@@ -9,9 +9,9 @@ data class Ticket(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_ticket")
-    val id: Long,
+    val id: Int,
 
-    @Column(name = "price")
+    @Column(name = "price", columnDefinition = "numeric(6,2)")
     val price: Double,
 
     @Column(name = "payment_method", length = 100)

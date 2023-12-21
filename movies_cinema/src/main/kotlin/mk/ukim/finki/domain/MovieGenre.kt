@@ -25,8 +25,8 @@ class MovieGenre(
 @Embeddable
 data class MovieGenreId(
     @Column(name = "id_movie")
-    val movieId: Long,
+    val movieId: Int,
 
     @Column(name = "id_genre")
-    val genreId: Long
+    val genreId: Int
 ) : Serializable

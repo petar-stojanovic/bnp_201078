@@ -10,7 +10,7 @@ class Hall(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_hall")
-    val id: Long,
+    val id: Int,
 
     @Column(name = "hall_number")
     val hallNumber: Int,

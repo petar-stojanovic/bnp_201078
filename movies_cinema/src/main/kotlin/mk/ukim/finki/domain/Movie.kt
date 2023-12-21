@@ -15,7 +15,7 @@ data class Movie(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_movie")
-    val id: Long,
+    val id: Int,
 
     @Column(name = "title")
     val title: String,
@@ -26,10 +26,10 @@ data class Movie(
     @Column(name = "description")
     val description: String,
 
-    @Column
+    @Column(name="rating", columnDefinition = "numeric(4,2)")
     val rating: Double,
 
-    @Column(name = "special_requirement", length = 255)
+    @Column(name = "special_requirement")
     val specialRequirement: String?,
 
     @Column(name = "poster")

@@ -10,7 +10,7 @@ class Projection(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_projection")
-    val id: Long,
+    val id: Int,
 
     @Column(name = "date_time")
     val dateTime: LocalDateTime,
@@ -23,6 +23,6 @@ class Projection(
     @JoinColumn(name = "id_hall")
     val hall: Hall,
 
-    @Column(name = "start_price")
+    @Column(name = "start_price", columnDefinition = "numeric(6,2)")
     val startPrice: Double = 10.00
 )
