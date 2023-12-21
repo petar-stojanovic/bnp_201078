@@ -1,16 +1,18 @@
-package mk.ukim.finki.domain
+package mk.ukim.finki.domain.view
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
+import org.hibernate.annotations.Immutable
 
 @Entity
-@Table(name = "movie")
-data class Movie(
-
+@Table(name = "movie_with_genres_view")
+@Immutable
+data class MovieWithGenresView(
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", columnDefinition = "int")
+    val id: Long,
+
     @Column(name = "id_movie")
-    val id: Int,
+    val movieId: Int,
 
     @Column(name = "title")
     val title: String,
@@ -21,7 +23,7 @@ data class Movie(
     @Column(name = "description")
     val description: String,
 
-    @Column(name="rating", columnDefinition = "numeric(4,2)")
+    @Column(name = "rating", columnDefinition = "numeric(4,2)")
     val rating: Double,
 
     @Column(name = "special_requirement")
@@ -30,7 +32,7 @@ data class Movie(
     @Column(name = "poster")
     val poster: String = "https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg",
 
-    @OneToMany(mappedBy = "movie")
-    @JsonIgnore
-    val genres: Set<MovieGenre>
+    @Column(name = "genre")
+    val genre: String
+
 )
