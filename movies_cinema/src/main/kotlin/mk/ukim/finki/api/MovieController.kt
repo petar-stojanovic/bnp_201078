@@ -17,7 +17,7 @@ class MovieController (
 
     @GetMapping
     fun findAllMovies(): List<MovieWithGenresView> {
-        return movieService.findAll()
+        return movieService.findAllMoviesWithGenres()
     }
 
 }
