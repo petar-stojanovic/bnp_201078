@@ -1,27 +1,22 @@
 package mk.ukim.finki.api
 
 import mk.ukim.finki.domain.view.AllProjectionsForMovieView
+import mk.ukim.finki.domain.view.AllTicketsForProjectionView
 import mk.ukim.finki.repository.AllProjectionsForMovieViewRepository
 import mk.ukim.finki.service.MovieService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("api/projection")
 class ProjectionController (
     val movieService: MovieService
 ) {
-
-
     @GetMapping
-    fun findAllProjections(): List<AllProjectionsForMovieView> {
-        return movieService.findAllProjections()
+    fun findAllProjections(@RequestParam(required = false) movieId: Int?): List<AllProjectionsForMovieView> {
+        return if (movieId == null) {
+            movieService.findAllProjections()
+        } else {
+            movieService.findAllProjectionsForMovie(movieId)
+        }
     }
-    @GetMapping("/{movieId}")
-    fun findAllProjectionForMovies(@PathVariable movieId: Int): List<AllProjectionsForMovieView> {
-        return movieService.findAllProjectionsForMovie(movieId)
-    }
-
 }
