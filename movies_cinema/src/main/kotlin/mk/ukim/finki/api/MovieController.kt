@@ -1,9 +1,6 @@
 package mk.ukim.finki.api
 
-import mk.ukim.finki.domain.Movie
-import mk.ukim.finki.domain.MovieDTO
 import mk.ukim.finki.domain.view.MovieWithGenresView
-import mk.ukim.finki.repository.MovieRepository
 import mk.ukim.finki.repository.MovieWithGenresRepository
 import mk.ukim.finki.service.MovieService
 import org.springframework.web.bind.annotation.GetMapping
@@ -19,14 +16,8 @@ class MovieController (
 
 
     @GetMapping
-    fun findAllMovies(): List<MovieDTO> {
+    fun findAllMovies(): List<MovieWithGenresView> {
         return movieService.findAll()
-    }
-
-
-    @GetMapping("all")
-    fun findAllMoviesWithGenres(): List<MovieWithGenresView> {
-        return movieWithGenresRepository.findAll()
     }
 
 }
