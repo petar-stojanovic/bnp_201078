@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 
 @Repository
-interface AllProjectionsForMovieViewRepository : JpaRepository<AllProjectionsForMovieView, Int> {
+interface AllProjectionsForMovieViewRepository : JpaRepository<AllProjectionsForMovieView, Long> {
 
     @Query(name = """
         select * from all_projections_for_movie_view

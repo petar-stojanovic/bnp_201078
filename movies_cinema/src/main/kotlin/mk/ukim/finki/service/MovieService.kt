@@ -1,15 +1,18 @@
 package mk.ukim.finki.service
 
 import mk.ukim.finki.domain.view.AllProjectionsForMovieView
+import mk.ukim.finki.domain.view.AllTicketsForProjectionView
 import mk.ukim.finki.domain.view.MovieWithGenresView
 import mk.ukim.finki.repository.AllProjectionsForMovieViewRepository
+import mk.ukim.finki.repository.AllTicketsForProjectionViewRepository
 import mk.ukim.finki.repository.MovieWithGenresRepository
 import org.springframework.stereotype.Service
 
 @Service
 class MovieService(
     val movieWithGenresRepository: MovieWithGenresRepository,
-    val projectionsForMovieViewRepository: AllProjectionsForMovieViewRepository
+    val projectionsForMovieViewRepository: AllProjectionsForMovieViewRepository,
+    val allTicketsForProjectionViewRepository: AllTicketsForProjectionViewRepository
 ) {
 
     fun findAllMoviesWithGenres(): List<MovieWithGenresView> = movieWithGenresRepository.findAll()
@@ -20,6 +23,14 @@ class MovieService(
 
     fun findAllProjectionsForMovie(movieId: Int): List<AllProjectionsForMovieView> = projectionsForMovieViewRepository
         .findAllByMovieId(movieId)
+
+
+    fun findAllTickets(): List<AllTicketsForProjectionView> = allTicketsForProjectionViewRepository
+        .findAll()
+
+    fun findAllTicketsForProjection(projectionId: Int): List<AllTicketsForProjectionView> =
+        allTicketsForProjectionViewRepository
+        .findAllByProjectionId(projectionId)
 
 //    fun findAll(): List<MovieDTO> {
 //        return movieWithGenresRepository.findAll()
