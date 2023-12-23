@@ -5,6 +5,8 @@ import {Projection} from "../../interfaces/projection.interface";
 import {Movie} from "../../interfaces/movie.interface";
 import {forkJoin, mergeMap} from "rxjs";
 import {MovieService} from "../../services/movie.service";
+import {DatePipe} from "@angular/common";
+
 
 @Component({
   selector: 'app-movie-details',
@@ -13,6 +15,15 @@ import {MovieService} from "../../services/movie.service";
 })
 export class MovieDetailsComponent implements OnInit {
 
+  displayedColumns: string[] = [
+    'id',
+    'date',
+    'time',
+    'hallNumber',
+    'screenType',
+    'startPrice',
+    'action'
+  ];
   movieId = 0
   movie: Movie | null = null
   projections: Projection[] | null = null
@@ -21,15 +32,13 @@ export class MovieDetailsComponent implements OnInit {
     private _projectionService: ProjectionService,
     private _movieService: MovieService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private datePipe: DatePipe
   ) {
     this.movieId = +this.route.snapshot.paramMap.get('movieId')!!;
   }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.paramMap.get('movieId'))
-
-
     forkJoin({
       movie: this._movieService.getMovieById(this.movieId),
       projections: this._projectionService.getAllProjectionsForMovie(this.movieId)
@@ -39,8 +48,10 @@ export class MovieDetailsComponent implements OnInit {
       }
       this.movie = it.movie;
       this.projections = it.projections
+      console.log(it.movie)
+      console.log(it.projections)
+      console.log(it.projections.at(0)?.dateTime)
     })
-
 
 
   }

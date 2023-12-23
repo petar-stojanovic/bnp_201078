@@ -1,7 +1,22 @@
-img{
+img {
   max-width: 100%;
+  vertical-align: middle;
+  border-style: none;
 }
 
-body{
+body {
   background: aliceblue;
 }
+
+* {
+  font-family: -apple-system, sans-serif !important;
+}
+
+.material-icons {
+  font-family: 'Material Icons', sans-serif !important;
+}
+
+/*body {*/
+/*  background: #181818;*/
+/*  color: #cdcdcd;*/
+/*}*/

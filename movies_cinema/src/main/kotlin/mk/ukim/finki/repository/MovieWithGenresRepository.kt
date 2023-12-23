@@ -10,7 +10,12 @@ import org.springframework.stereotype.Repository
 interface MovieWithGenresRepository : JpaRepository<MovieWithGenresView, Long> {
 
 
-    @Query(name = """
+    @Query(value = """
+        select * from movie_with_genres_view
+    """, nativeQuery = true)
+    override fun findAll(): List<MovieWithGenresView>
+
+    @Query(value = """
         select * from movie_with_genres_view
         where id_movie = :movieId
     """, nativeQuery = true)

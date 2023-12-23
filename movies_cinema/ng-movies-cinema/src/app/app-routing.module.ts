@@ -14,7 +14,7 @@ const routes: Routes = [
     component: MovieDetailsComponent
   },
   {
-    path: 'projections/:projectionId',
+    path: 'projection/:projectionId',
     component: ProjectionDetailsComponent
   },
   {

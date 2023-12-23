@@ -8,9 +8,11 @@ import org.springframework.stereotype.Repository
 @Repository
 interface AllProjectionsForMovieViewRepository : JpaRepository<AllProjectionsForMovieView, Long> {
 
-    @Query(name = """
-        select * from all_projections_for_movie_view
-        where id_movie = :movieId
+    @Query(value = """
+        select * from all_projections_for_movie_view p
+        where p.id_movie = :movieId and p.date_time > now()
+        order by p.date_time
     """, nativeQuery = true)
-    fun findAllByMovieId(movieId: Int): List<AllProjectionsForMovieView>
+    fun findAllFutureProjectionsByMovieId(movieId: Int): List<AllProjectionsForMovieView>
+
 }

@@ -23,7 +23,7 @@ class MovieService(
         .findAll()
 
     fun findAllProjectionsForMovie(movieId: Int): List<AllProjectionsForMovieView> = projectionsForMovieViewRepository
-        .findAllByMovieId(movieId)
+        .findAllFutureProjectionsByMovieId(movieId)
 
 
     fun findAllTickets(): List<AllTicketsForProjectionView> = allTicketsForProjectionViewRepository
