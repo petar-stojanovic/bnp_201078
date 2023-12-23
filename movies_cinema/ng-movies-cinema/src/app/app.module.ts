@@ -46,7 +46,8 @@ import {MovieDetailsComponent} from './components/movie-details/movie-details.co
 import {ProjectionDetailsComponent} from './components/projection-details/projection-details.component';
 import {HttpClientModule,HttpClient} from "@angular/common/http";
 import { CustomerComponent } from './components/customer/customer.component';
-import { BuyTicketDialog } from './components/buy-ticket-dialog/buy-ticket-dialog';
+import { BuyTicketDialog } from './dialogs/buy-ticket-dialog/buy-ticket-dialog';
+import { CreateCustomerDialog } from './dialogs/create-customer-dialog/create-customer-dialog';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { BuyTicketDialog } from './components/buy-ticket-dialog/buy-ticket-dialo
     MovieDetailsComponent,
     ProjectionDetailsComponent,
     CustomerComponent,
-    BuyTicketDialog
+    BuyTicketDialog,
+    CreateCustomerDialog
   ],
   imports: [
     BrowserModule,

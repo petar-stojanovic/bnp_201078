@@ -9,7 +9,7 @@ import {forkJoin, last, switchMap} from "rxjs";
 import {Ticket} from "../../interfaces/ticket.interface";
 import {TicketService} from "../../services/ticket.service";
 import {MatDialog} from "@angular/material/dialog";
-import {BuyTicketDialog} from "../buy-ticket-dialog/buy-ticket-dialog";
+import {BuyTicketDialog} from "../../dialogs/buy-ticket-dialog/buy-ticket-dialog";
 
 export interface SimpleProjectionInfo {
   date: string;

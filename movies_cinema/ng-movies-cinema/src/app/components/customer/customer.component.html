@@ -11,7 +11,8 @@
 </mat-form-field>
 
 
-<h1 class="fw-bold m-3 text-center fs-1">
+<h1 class="fw-bold m-3 text-center fs-1 buttons">
+  <button mat-raised-button color="accent" (click)="openDialog()"> Create new Customer</button>
   <button mat-raised-button color="primary" (click)="login()"> Login as Customer</button>
 </h1>
 
@@ -36,7 +37,7 @@
   </ng-container>
 
   <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef> Movie Title</th>
+    <th mat-header-cell *matHeaderCellDef> Date</th>
     <td mat-cell *matCellDef="let element"> {{ element.dateTime.split("T")[0] }}</td>
   </ng-container>
 
@@ -56,12 +57,12 @@
   </ng-container>
 
   <ng-container matColumnDef="rowNumber">
-    <th mat-header-cell *matHeaderCellDef> Row Number</th>
+    <th mat-header-cell *matHeaderCellDef> Row</th>
     <td mat-cell *matCellDef="let element"> {{ element.rowNumber }}</td>
   </ng-container>
 
   <ng-container matColumnDef="colNumber">
-    <th mat-header-cell *matHeaderCellDef> Col Number</th>
+    <th mat-header-cell *matHeaderCellDef> Col</th>
     <td mat-cell *matCellDef="let element"> {{ element.colNumber }}</td>
   </ng-container>
 

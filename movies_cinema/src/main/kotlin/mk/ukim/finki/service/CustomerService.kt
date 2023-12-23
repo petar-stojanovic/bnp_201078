@@ -16,4 +16,8 @@ class CustomerService(
     fun findById(customerId: Int): Optional<Customer> {
         return customerRepository.findById(customerId.toLong())
     }
+
+    fun createCustomer(firstName: String, lastName: String, sex: String, age: Int) {
+        customerRepository.createCustomer(firstName, lastName, sex, age)
+    }
 }

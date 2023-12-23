@@ -4,6 +4,10 @@ import {Customer} from "../../interfaces/customer.interface";
 import {forkJoin} from "rxjs";
 import {TicketService} from "../../services/ticket.service";
 import {BoughtTicketInfo} from "../../interfaces/ticket.interface";
+import {BuyTicketDialog} from "../../dialogs/buy-ticket-dialog/buy-ticket-dialog";
+import {MatDialog} from "@angular/material/dialog";
+import {CreateCustomerDialog} from "../../dialogs/create-customer-dialog/create-customer-dialog";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-customer',
@@ -34,7 +38,9 @@ export class CustomerComponent implements OnInit {
   lastName = localStorage.getItem("lastName")
 
   constructor(private _customerService: CustomerService,
-              private _ticketService: TicketService) {
+              private _ticketService: TicketService,
+              public dialog: MatDialog,
+              private router: Router) {
 
     console.log(localStorage)
     console.log(this.loggedInUserId)
@@ -74,5 +80,26 @@ export class CustomerComponent implements OnInit {
       localStorage.setItem("lastName", customer.lastName)
       location.reload();
     })
+  }
+
+  openDialog() {
+
+    const dialogRef = this.dialog.open(CreateCustomerDialog);
+
+    dialogRef.afterClosed().subscribe(it => {
+      console.log('The  ', it);
+      if (it !== undefined) {
+        this._customerService.createCustomer(it.firstName, it.lastName, it.sex, it.age).subscribe(_ => {
+          this.reloadCurrentRoute()
+        })
+      }
+    });
+  }
+
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate([currentUrl]);
+    });
   }
 }
