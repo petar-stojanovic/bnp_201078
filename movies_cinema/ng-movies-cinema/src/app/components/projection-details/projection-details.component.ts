@@ -5,9 +5,11 @@ import {ProjectionService} from "../../services/projection.service";
 import {MovieService} from "../../services/movie.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DatePipe} from "@angular/common";
-import {forkJoin, switchMap} from "rxjs";
+import {forkJoin, last, switchMap} from "rxjs";
 import {Ticket} from "../../interfaces/ticket.interface";
 import {TicketService} from "../../services/ticket.service";
+import {MatDialog} from "@angular/material/dialog";
+import {BuyTicketDialog} from "../buy-ticket-dialog/buy-ticket-dialog";
 
 export interface SimpleProjectionInfo {
   date: string;
@@ -43,6 +45,7 @@ export class ProjectionDetailsComponent implements OnInit {
     private _movieService: MovieService,
     private route: ActivatedRoute,
     private router: Router,
+    public dialog: MatDialog
   ) {
     this.movieId = +this.route.snapshot.paramMap.get('movieId')!!;
     this.projectionId = +this.route.snapshot.paramMap.get('projectionId')!!;
@@ -68,4 +71,32 @@ export class ProjectionDetailsComponent implements OnInit {
     })
   }
 
+  openDialog(id: number) {
+    console.log(id)
+    const loggedInUserId = localStorage.getItem("userId")
+    const firstName = localStorage.getItem("firstName")
+    const lastName = localStorage.getItem("lastName")
+
+
+    const dialogRef = this.dialog.open(BuyTicketDialog, {
+      data: {ticketId: id, firstName: firstName, lastName: lastName, movie: this.movie!.title},
+    });
+
+    dialogRef.afterClosed().subscribe(paymentMethod => {
+      console.log('The dialog was closed ', paymentMethod);
+      if (paymentMethod !== undefined) {
+        this._ticketService.customerBuysTicket(+loggedInUserId!, id, paymentMethod).subscribe(_ => {
+          this.reloadCurrentRoute()
+        })
+
+      }
+    });
+  }
+
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate([currentUrl]);
+    });
+  }
 }

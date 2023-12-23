@@ -1,1 +1,18 @@
-<p>buy-ticket-dialog works!</p>
+<h1 mat-dialog-title>User: {{ data.firstName }} {{ data.lastName }}</h1>
+<div mat-dialog-content>
+  <p>Movie:
+    <b> {{ data.movie }}</b>
+  </p>
+  <mat-form-field appearance="fill" class="w-100">
+    <mat-label>Payment Method:</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option *ngFor="let option of availableMethods" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="d-flex justify-content-around mx-3">
+  <button mat-raised-button color="accent" (click)="onNoClick()">Back</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="selected" cdkFocusInitial>Buy Ticket</button>
+</div>
