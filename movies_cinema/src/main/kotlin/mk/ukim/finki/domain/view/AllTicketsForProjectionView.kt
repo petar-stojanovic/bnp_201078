@@ -37,5 +37,20 @@ data class AllTicketsForProjectionView(
     val seatNumber: Int,
 
     @Column(name = "is_bought")
-    val isBought: Boolean
+    val isBought: Boolean,
+
+    @Column(name = "screen_type")
+    val screenType: String,
+
+    @Column(name = "cinema_name")
+    val cinemaName: String,
+
+    @Column(name = "city")
+    val city: String,
+
+    @Column(name = "country")
+    val country: String,
+
+    @Column(name = "hall_number")
+    val hallNumber: Int,
 )

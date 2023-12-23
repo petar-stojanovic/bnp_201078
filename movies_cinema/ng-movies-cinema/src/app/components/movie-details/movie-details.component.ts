@@ -15,7 +15,6 @@ import {MovieService} from "../../services/movie.service";
 export class MovieDetailsComponent implements OnInit {
 
   displayedColumns: string[] = [
-    'id',
     'date',
     'time',
     'hallNumber',

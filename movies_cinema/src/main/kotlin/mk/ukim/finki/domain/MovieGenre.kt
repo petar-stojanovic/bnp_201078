@@ -10,7 +10,6 @@ class MovieGenre(
     @EmbeddedId
     val id: MovieGenreId,
 
-
     @ManyToOne
     @MapsId("movieId")
     @JoinColumn(name = "id_movie")

@@ -8,7 +8,6 @@ import jakarta.persistence.*
 data class Genre(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_genre")
     val id: Int,
 

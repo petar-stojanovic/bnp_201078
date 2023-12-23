@@ -9,6 +9,16 @@ import {forkJoin, switchMap} from "rxjs";
 import {Ticket} from "../../interfaces/ticket.interface";
 import {TicketService} from "../../services/ticket.service";
 
+export interface SimpleProjectionInfo {
+  date: string;
+  time: string;
+  screenType: string;
+  cinemaName: string;
+  city: string;
+  country: string;
+  hallNumber: number
+}
+
 @Component({
   selector: 'app-projection-details',
   templateUrl: './projection-details.component.html',
@@ -17,18 +27,16 @@ import {TicketService} from "../../services/ticket.service";
 export class ProjectionDetailsComponent implements OnInit {
 
   displayedColumns: string[] = [
-    'id',
-    'date',
-    'time',
-    'hallNumber',
-    'screenType',
-    'startPrice',
+    'seatRow',
+    'seatNumber',
+    'price',
     'action'
   ];
   movieId = 0
   projectionId = 0
   movie: Movie | null = null
   tickets: Ticket[] | null = null
+  projectionInfo: SimpleProjectionInfo | null = null
 
   constructor(
     private _ticketService: TicketService,
@@ -50,6 +58,10 @@ export class ProjectionDetailsComponent implements OnInit {
       }
       this.movie = it.movie;
       this.tickets = it.tickets
+      this.projectionInfo = it.tickets[0] as unknown as SimpleProjectionInfo;
+      this.projectionInfo.date = it.tickets[0].projectionTime.split("T")[0]
+      this.projectionInfo.time = it.tickets[0].projectionTime.split("T")[1]
+
 
       console.log(it.movie)
       console.log(it.tickets)

@@ -8,7 +8,6 @@ import jakarta.persistence.*
 class Hall(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_hall")
     val id: Int,
 

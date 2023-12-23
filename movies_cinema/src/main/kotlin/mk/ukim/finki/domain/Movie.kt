@@ -8,7 +8,6 @@ import jakarta.persistence.*
 data class Movie(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_movie")
     val id: Int,
 

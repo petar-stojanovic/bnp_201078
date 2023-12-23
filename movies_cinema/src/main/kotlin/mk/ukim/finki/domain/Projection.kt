@@ -8,7 +8,6 @@ import java.time.LocalDateTime
 class Projection(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_projection")
     val id: Int,
 

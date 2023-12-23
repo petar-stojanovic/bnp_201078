@@ -8,4 +8,9 @@ export interface Ticket {
   seatRow: number
   seatNumber: number
   isBought: boolean
+  screenType: string
+  cinemaName: string
+  city: string
+  country: string
+  hallNumber: number
 }

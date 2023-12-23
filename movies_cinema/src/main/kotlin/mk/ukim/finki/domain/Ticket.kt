@@ -7,7 +7,6 @@ import jakarta.persistence.*
 data class Ticket(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_ticket")
     val id: Int,
 

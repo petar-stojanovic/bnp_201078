@@ -47,52 +47,49 @@
 
 <h1 class="fs-1 my-5 text-center fw-bold"> See Available Tickets</h1>
 
-{{tickets | json}}
 
-<!--<table mat-table [dataSource]="projections" class="mat-elevation-z8" *ngIf="projections">-->
+<div class="d-flex justify-content-between mb-4 projection-info" *ngIf="projectionInfo">
+  <div class=" fs-5 text-uppercase">{{ projectionInfo.cinemaName }}, {{ projectionInfo.city }},
+    {{ projectionInfo.country }} - Hall {{ projectionInfo.hallNumber }}
+  </div>
+  <div class=" fs-5">
+    <b>Date:</b>
+    {{ projectionInfo.date }} - {{ projectionInfo.time }}
+  </div>
+</div>
 
 
-<!--  <ng-container matColumnDef="id">-->
-<!--    <th mat-header-cell *matHeaderCellDef> No.</th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{ element.id }}</td>-->
-<!--  </ng-container>-->
+<table mat-table [dataSource]="tickets" class="mat-elevation-z8" *ngIf="tickets">
 
-<!--  <ng-container matColumnDef="date">-->
-<!--    <th mat-header-cell *matHeaderCellDef> Date</th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{ element.dateTime.split("T")[0] }}</td>-->
-<!--  </ng-container>-->
+  <ng-container matColumnDef="seatRow">
+    <th mat-header-cell *matHeaderCellDef> Seat Row</th>
+    <td mat-cell *matCellDef="let element"> {{ element.seatRow }}</td>
+  </ng-container>
 
-<!--  <ng-container matColumnDef="time">-->
-<!--    <th mat-header-cell *matHeaderCellDef> Time</th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{ element.dateTime.split("T")[1] }}</td>-->
-<!--  </ng-container>-->
+  <ng-container matColumnDef="seatNumber">
+    <th mat-header-cell *matHeaderCellDef> Seat Number</th>
+    <td mat-cell *matCellDef="let element"> {{ element.seatNumber }}</td>
+  </ng-container>
 
-<!--  <ng-container matColumnDef="hallNumber">-->
-<!--    <th mat-header-cell *matHeaderCellDef> Hall Number</th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{ element.hallNumber }}</td>-->
-<!--  </ng-container>-->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price</th>
+    <td mat-cell *matCellDef="let element"> {{ element.price }}</td>
+  </ng-container>
 
-<!--  <ng-container matColumnDef="startPrice">-->
-<!--    <th mat-header-cell *matHeaderCellDef> Start Price</th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{ element.startPrice }}</td>-->
-<!--  </ng-container>-->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Action</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="primary" [disabled]="element.isBought" matTooltip="Info about the action"
+              routerLink='/projection/{{element.movieId}}'>
+        <mat-icon>shopping_cart</mat-icon>
+        Buy Ticket
+      </button>
+    </td>
+  </ng-container>
 
-<!--  <ng-container matColumnDef="screenType">-->
-<!--    <th mat-header-cell *matHeaderCellDef> Start Price</th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{ element.screenType }}</td>-->
-<!--  </ng-container>-->
 
-<!--  <ng-container matColumnDef="action">-->
-<!--    <th mat-header-cell *matHeaderCellDef> Action</th>-->
-<!--    <td mat-cell *matCellDef="let element">-->
-<!--      <button mat-raised-button color="primary" routerLink='/projection/{{element.movieId}}'>-->
-<!--        Buy Ticket-->
-<!--      </button>-->
-<!--    </td>-->
-<!--  </ng-container>-->
-
-<!--  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
-<!--  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
-<!--</table>-->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
 
 
