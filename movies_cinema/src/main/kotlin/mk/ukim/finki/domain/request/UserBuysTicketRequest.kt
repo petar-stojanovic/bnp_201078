@@ -1,4 +1,3 @@
 package mk.ukim.finki.domain.request
 
-class UserBuysTicketRequest {
-}
+data class UserBuysTicketRequest(val customerId: Int, val ticketId: Int, val paymentMethod: String)

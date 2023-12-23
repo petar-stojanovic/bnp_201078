@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
+import java.util.*
 
 @RestController
 @RequestMapping("api/customer")
 class CustomerController(
     val customerService: CustomerService,
-    val ticketService: TicketService
 ) {
 
 
@@ -25,7 +25,7 @@ class CustomerController(
     }
 
     @GetMapping(params = ["customerId"])
-    fun findAllTicketsByCustomer(@RequestParam customerId: Int): List<Ticket>? {
-        return ticketService.findAllTicketsByCustomer(customerId)
+    fun findById(@RequestParam customerId: Int): Optional<Customer> {
+        return customerService.findById(customerId)
     }
 }

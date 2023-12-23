@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Ticket} from "../interfaces/ticket.interface";
-import {TicketDetails} from "../interfaces/ticket-details.interface";
+import {BoughtTicketInfo, Ticket} from "../interfaces/ticket.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +19,13 @@ export class TicketService {
     return this._http.get<Ticket[]>(`${this.path}`, {params})
   }
 
-  getAllTicketsByCustomerId(customerId: number): Observable<TicketDetails[]> {
+  getAllTicketsByCustomerId(customerId: number): Observable<BoughtTicketInfo[]> {
     let params = new HttpParams();
     params = params.set("customerId", customerId)
-    return this._http.get<TicketDetails[]>(`${this.path}`, {params})
+    return this._http.get<BoughtTicketInfo[]>(`${this.path}`, {params})
+  }
+
+  customerBuysTicket(customerId: number, ticketId: number, paymentMethod: string): Observable<any> {
+    return this._http.post<any>(`${this.path}`, {customerId, ticketId, paymentMethod})
   }
 }

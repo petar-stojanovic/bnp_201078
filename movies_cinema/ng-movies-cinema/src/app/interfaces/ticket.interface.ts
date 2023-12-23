@@ -14,3 +14,18 @@ export interface Ticket {
   country: string
   hallNumber: number
 }
+
+export interface BoughtTicketInfo {
+  id: number
+  customerId: number
+  dateTime: string
+  poster: string
+  movieTitle: string
+  specialRequirement: string
+  ticketPrice: number
+  paymentMethod: string
+  rowNumber: number
+  colNumber: number
+  screenType: string
+  cinemaName: string
+}
