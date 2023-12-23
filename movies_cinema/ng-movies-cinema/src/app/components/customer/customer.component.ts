@@ -3,8 +3,7 @@ import {CustomerService} from "../../services/customer.service";
 import {Customer} from "../../interfaces/customer.interface";
 import {forkJoin} from "rxjs";
 import {TicketService} from "../../services/ticket.service";
-import {Ticket} from "../../interfaces/ticket.interface";
-import {TicketDetails} from "../../interfaces/ticket-details.interface";
+import {BoughtTicketInfo} from "../../interfaces/ticket.interface";
 
 @Component({
   selector: 'app-customer',
@@ -12,12 +11,23 @@ import {TicketDetails} from "../../interfaces/ticket-details.interface";
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-
+  displayedColumns: string[] = [
+    "poster",
+    "movieTitle",
+    "date",
+    "time",
+    "ticketPrice",
+    "paymentMethod",
+    "rowNumber",
+    "colNumber",
+    "screenType",
+    "cinemaName",
+  ];
 
   customers: Customer[] | null = null
   selectedCustomer = this.customers?.at(0);
 
-  tickets: TicketDetails[] | null = null;
+  tickets: BoughtTicketInfo[] | null = null;
 
   loggedInUserId = localStorage.getItem("userId")
   firstName = localStorage.getItem("firstName")
