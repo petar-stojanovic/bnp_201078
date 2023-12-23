@@ -10,23 +10,24 @@ const routes: Routes = [
     component: AllMoviesComponent
   },
   {
-    path: 'movie/:movieId',
-    component: MovieDetailsComponent
+    path: 'movie/:movieId/projection/:projectionId',
+    component: ProjectionDetailsComponent
   },
   {
-    path: 'projection/:projectionId',
-    component: ProjectionDetailsComponent
+    path: 'movie/:movieId',
+    component: MovieDetailsComponent
   },
   {
     path: '',
     redirectTo: '/movies',
     pathMatch: 'full'
   }
-  // Add more routes as needed
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

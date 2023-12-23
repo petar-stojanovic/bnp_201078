@@ -1,1 +1,98 @@
-<p>projection-details works!</p>
+<section class="row p-5" *ngIf="movie">
+  <div class="poster col-md-4 col-sm-12">
+    <img class="img-fluid" [src]="movie.poster" [alt]="movie.title">
+  </div>
+  <div class="info col-md-8 col-sm-12">
+    <div>
+
+      <h1 class="fs-1 fw-bold">{{ movie.title }}</h1>
+
+      <div class="">
+        <span>{{ movie.description }}</span>
+      </div>
+    </div>
+    <div></div>
+
+    <div class="details">
+
+      <div class="d-flex">
+        <b>Rating:</b>
+        <span class="d-flex align-items-center">
+        <mat-icon style="font-size: 21px">star</mat-icon>
+        <span> {{ movie.rating }}</span>
+      </span>
+      </div>
+
+      <div class="">
+        <b>Special Requirement:</b>
+        <span> {{ movie.specialRequirement }}</span>
+      </div>
+
+      <div class="">
+        <b>Duration:</b>
+        <span> {{ movie.duration }} min</span>
+      </div>
+
+      <div class="">
+        <b>Genre:</b>
+        <span> {{ movie.genres }}</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!--<mat-divider></mat-divider>-->
+
+<h1 class="fs-1 my-5 text-center fw-bold"> See Available Tickets</h1>
+
+{{tickets | json}}
+
+<!--<table mat-table [dataSource]="projections" class="mat-elevation-z8" *ngIf="projections">-->
+
+
+<!--  <ng-container matColumnDef="id">-->
+<!--    <th mat-header-cell *matHeaderCellDef> No.</th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{ element.id }}</td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="date">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Date</th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{ element.dateTime.split("T")[0] }}</td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="time">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Time</th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{ element.dateTime.split("T")[1] }}</td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="hallNumber">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Hall Number</th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{ element.hallNumber }}</td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="startPrice">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Start Price</th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{ element.startPrice }}</td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="screenType">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Start Price</th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{ element.screenType }}</td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="action">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Action</th>-->
+<!--    <td mat-cell *matCellDef="let element">-->
+<!--      <button mat-raised-button color="primary" routerLink='/projection/{{element.movieId}}'>-->
+<!--        Buy Ticket-->
+<!--      </button>-->
+<!--    </td>-->
+<!--  </ng-container>-->
+
+<!--  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+<!--  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+<!--</table>-->
+
+

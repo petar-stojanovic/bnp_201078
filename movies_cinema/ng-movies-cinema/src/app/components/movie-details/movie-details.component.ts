@@ -3,9 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ProjectionService} from "../../services/projection.service";
 import {Projection} from "../../interfaces/projection.interface";
 import {Movie} from "../../interfaces/movie.interface";
-import {forkJoin, mergeMap} from "rxjs";
+import {forkJoin} from "rxjs";
 import {MovieService} from "../../services/movie.service";
-import {DatePipe} from "@angular/common";
 
 
 @Component({
@@ -33,7 +32,6 @@ export class MovieDetailsComponent implements OnInit {
     private _movieService: MovieService,
     private route: ActivatedRoute,
     private router: Router,
-    private datePipe: DatePipe
   ) {
     this.movieId = +this.route.snapshot.paramMap.get('movieId')!!;
   }
@@ -48,9 +46,6 @@ export class MovieDetailsComponent implements OnInit {
       }
       this.movie = it.movie;
       this.projections = it.projections
-      console.log(it.movie)
-      console.log(it.projections)
-      console.log(it.projections.at(0)?.dateTime)
     })
 
 
