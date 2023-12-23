@@ -6,7 +6,7 @@ import {ProjectionDetailsComponent} from "./components/projection-details/projec
 
 const routes: Routes = [
   {
-    path: '/movies',
+    path: 'movies',
     component: AllMoviesComponent
   },
   {
