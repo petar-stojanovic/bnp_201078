@@ -17,6 +17,7 @@ class MovieService(
 
     fun findAllMoviesWithGenres(): List<MovieWithGenresView> = movieWithGenresRepository.findAll()
 
+    fun findMovieById(movieId: Int): MovieWithGenresView? = movieWithGenresRepository.findAllByMovieId(movieId)
 
     fun findAllProjections(): List<AllProjectionsForMovieView> = projectionsForMovieViewRepository
         .findAll()

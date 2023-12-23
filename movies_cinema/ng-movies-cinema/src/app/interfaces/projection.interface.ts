@@ -1,12 +1,9 @@
-export interface Movie {
+export interface Projection {
   id: number
   movieId: number
-  title: string
-  duration: number
-  description: string
-  rating: number
-  specialRequirement: string
-  poster: string
-  genres: string
-
+  projectionId: number
+  dateTime: Date
+  hallNumber: number
+  screenType: string
+  startPrice: number
 }
