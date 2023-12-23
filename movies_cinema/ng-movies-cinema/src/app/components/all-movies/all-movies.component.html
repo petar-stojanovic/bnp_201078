@@ -1,16 +1,36 @@
-<p>all-movies works!</p>
-<p>all-movies works!</p>
-<p>all-movies works!</p>
-<p>all-movies works!</p>
-<p>all-movies works!</p>
-<p>all-movies works!</p>
-<p>all-movies works!</p>
-<p>all-movies works!</p>
-<p>all-movies works!</p>
-<p>all-movies works!</p>
-<p>all-movies works!</p>
-<p>all-movies works!</p>
-<p>all-movies works!</p>
-<p>all-movies works!</p>
-<p>all-movies works!</p>
-<p>all-movies works!</p>
+<div class="row">
+  <div *ngFor="let movie of movies" class="col-lg-4 col-md-6 col-xs-12 p-4 d-flex align-items-stretch">
+    <mat-card class="p-3 justify-content-between">
+
+      <div>
+        <mat-card-header class="header">
+          <img mat-card-image [alt]='movie.title' [src]='movie.poster' class='image'>
+          <mat-card-subtitle class="d-flex justify-content-between my-2">
+            <span>
+              Rating: {{ movie.rating }}
+            </span>
+            <span>
+              Duration: {{ movie.duration }} min
+            </span>
+          </mat-card-subtitle>
+          <mat-card-title>{{ movie.title }}</mat-card-title>
+
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{ movie.description }}
+          </p>
+        </mat-card-content>
+      </div>
+
+      <mat-card-actions class="d-flex align-items-center justify-content-center">
+        <button mat-raised-button color="primary" routerLink='/movie/{{movie.movieId}}'>
+          See Available Projections
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+</div>
+
+

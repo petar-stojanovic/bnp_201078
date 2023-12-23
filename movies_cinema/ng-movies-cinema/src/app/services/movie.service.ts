@@ -12,8 +12,8 @@ export class MovieService {
   }
 
 
-  getAllMovies(): Observable<Movie> {
-    return this._http.get<Movie>("/api/movie")
+  getAllMovies(): Observable<Movie[]> {
+    return this._http.get<Movie[]>("/api/movie")
   }
 
 }
