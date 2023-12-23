@@ -45,13 +45,15 @@ import {AllMoviesComponent} from './components/all-movies/all-movies.component';
 import {MovieDetailsComponent} from './components/movie-details/movie-details.component';
 import {ProjectionDetailsComponent} from './components/projection-details/projection-details.component';
 import {HttpClientModule,HttpClient} from "@angular/common/http";
+import { CustomerComponent } from './components/customer/customer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AllMoviesComponent,
     MovieDetailsComponent,
-    ProjectionDetailsComponent
+    ProjectionDetailsComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,

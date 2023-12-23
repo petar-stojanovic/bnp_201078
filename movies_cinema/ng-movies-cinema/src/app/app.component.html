@@ -1,11 +1,20 @@
 <mat-toolbar color="primary">
   <div class="container d-flex align-items-center justify-content-between">
-    <span routerLink="/movies" class="cursor-pointer">Movies Cinema</span>
+    <span routerLink="/movies" class="cursor-pointer fw-bold">Movies Cinema</span>
 
 
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>login</mat-icon>
-    </button>
+    <div class="d-flex align-items-center justify-content-center">
+      {{ firstName }} {{ lastName }}
+
+      <button mat-raised-button class="example-icon favorite-icon"
+              class="ms-3"
+              color="accent"
+              aria-label="Example icon-button with heart icon"
+              routerLink="customer">
+        <mat-icon>account_circle</mat-icon>
+        Customer
+      </button>
+    </div>
 
 
   </div>

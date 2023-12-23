@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  firstName = localStorage.getItem("firstName")
+  lastName = localStorage.getItem("lastName")
 }
