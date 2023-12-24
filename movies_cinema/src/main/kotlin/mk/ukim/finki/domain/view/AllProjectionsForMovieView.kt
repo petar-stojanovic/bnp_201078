@@ -32,4 +32,7 @@ data class AllProjectionsForMovieView(
 
     @Column(name = "start_price", columnDefinition = "numeric(4,2)")
     val startPrice: Double,
+
+    @Column(name = "cinema_name")
+    val cinemaName: String,
 )

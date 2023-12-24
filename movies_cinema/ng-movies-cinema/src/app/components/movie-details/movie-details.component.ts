@@ -15,6 +15,7 @@ import {MovieService} from "../../services/movie.service";
 export class MovieDetailsComponent implements OnInit {
 
   displayedColumns: string[] = [
+    'cinemaName',
     'date',
     'time',
     'hallNumber',
@@ -43,6 +44,7 @@ export class MovieDetailsComponent implements OnInit {
       if (it.movie === null) {
         this.router.navigate([""])
       }
+      console.log(it)
       this.movie = it.movie;
       this.projections = it.projections
     })

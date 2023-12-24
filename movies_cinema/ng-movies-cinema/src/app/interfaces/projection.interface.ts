@@ -6,4 +6,5 @@ export interface Projection {
   hallNumber: number
   screenType: string
   startPrice: number
+  cinemaName: string
 }
