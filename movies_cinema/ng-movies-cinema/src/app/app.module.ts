@@ -13,7 +13,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatCardModule} from "@angular/material/card";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatChipsModule} from "@angular/material/chips";
-import {MatCommonModule, MatRippleModule} from "@angular/material/core";
+import {MatCommonModule, MatNativeDateModule, MatRippleModule} from "@angular/material/core";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatDividerModule} from "@angular/material/divider";
@@ -44,11 +44,14 @@ import {MatTreeModule} from "@angular/material/tree";
 import {AllMoviesComponent} from './components/all-movies/all-movies.component';
 import {MovieDetailsComponent} from './components/movie-details/movie-details.component';
 import {ProjectionDetailsComponent} from './components/projection-details/projection-details.component';
-import {HttpClientModule,HttpClient} from "@angular/common/http";
-import { CustomerComponent } from './components/customer/customer.component';
-import { BuyTicketDialog } from './dialogs/buy-ticket-dialog/buy-ticket-dialog';
-import { CreateCustomerDialog } from './dialogs/create-customer-dialog/create-customer-dialog';
-import { AddMovieComponent } from './components/add-movie/add-movie.component';
+import {HttpClientModule, HttpClient} from "@angular/common/http";
+import {CustomerComponent} from './components/customer/customer.component';
+import {BuyTicketDialog} from './dialogs/buy-ticket-dialog/buy-ticket-dialog';
+import {CreateCustomerDialog} from './dialogs/create-customer-dialog/create-customer-dialog';
+import {AddMovieComponent} from './components/add-movie/add-movie.component';
+import {AddProjectionDialog} from "./dialogs/add-projection-dialog/add-projection-dialog";
+import {NgxMatDatetimePickerModule, NgxMatTimepickerModule} from "@angular-material-components/datetime-picker";
+import {NgxMatMomentModule} from "@angular-material-components/moment-adapter";
 
 @NgModule({
   declarations: [
@@ -59,7 +62,8 @@ import { AddMovieComponent } from './components/add-movie/add-movie.component';
     CustomerComponent,
     BuyTicketDialog,
     CreateCustomerDialog,
-    AddMovieComponent
+    AddMovieComponent,
+    AddProjectionDialog
   ],
   imports: [
     BrowserModule,
@@ -105,8 +109,14 @@ import { AddMovieComponent } from './components/add-movie/add-movie.component';
     MatTooltipModule,
     MatTreeModule,
     HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgxMatTimepickerModule,
+    NgxMatDatetimePickerModule,
+    NgxMatMomentModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

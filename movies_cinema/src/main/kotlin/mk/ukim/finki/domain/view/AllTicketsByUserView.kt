@@ -24,6 +24,9 @@ data class AllTicketsByUserView(
     @Column(name = "poster")
     val poster: String,
 
+    @Column(name = "id_movie")
+    val movieId: Int,
+
     @Column(name = "movie_title")
     val movieTitle: String,
 

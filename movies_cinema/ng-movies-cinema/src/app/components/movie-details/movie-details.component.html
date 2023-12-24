@@ -45,7 +45,7 @@
 
 <!--<mat-divider></mat-divider>-->
 
-<h1 class="fs-1 my-5 text-center fw-bold"> See Available Projections</h1>
+<h1 class="fs-1 mt-3 text-center fw-bold"> See Available Projections</h1>
 
 <table mat-table [dataSource]="projections" class="mat-elevation-z8" *ngIf="projections">
 
@@ -93,3 +93,7 @@
 </table>
 
 
+<p class="text-center my-2">
+  <button type="submit" mat-raised-button color="primary"  (click)="openDialog()" class="fw-bold m-3 fs-6">Add
+    New Projection</button>
+</p>

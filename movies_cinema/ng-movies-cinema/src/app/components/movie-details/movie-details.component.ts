@@ -5,6 +5,9 @@ import {Projection} from "../../interfaces/projection.interface";
 import {Movie} from "../../interfaces/movie.interface";
 import {forkJoin} from "rxjs";
 import {MovieService} from "../../services/movie.service";
+import {CreateCustomerDialog} from "../../dialogs/create-customer-dialog/create-customer-dialog";
+import {MatDialog} from "@angular/material/dialog";
+import {AddProjectionDialog} from "../../dialogs/add-projection-dialog/add-projection-dialog";
 
 
 @Component({
@@ -32,6 +35,7 @@ export class MovieDetailsComponent implements OnInit {
     private _movieService: MovieService,
     private route: ActivatedRoute,
     private router: Router,
+    public dialog: MatDialog
   ) {
     this.movieId = +this.route.snapshot.paramMap.get('movieId')!!;
   }
@@ -52,4 +56,28 @@ export class MovieDetailsComponent implements OnInit {
 
   }
 
+  openDialog() {
+
+    const dialogRef = this.dialog.open(AddProjectionDialog, {
+      data: {
+        movieId: this.movie!.movieId
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(it => {
+      if (it !== undefined) {
+        console.log(it)
+        this._projectionService.saveProjection(it).subscribe(_ => {
+          this.reloadCurrentRoute()
+        })
+      }
+    });
+  }
+
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate([currentUrl]);
+    });
+  }
 }

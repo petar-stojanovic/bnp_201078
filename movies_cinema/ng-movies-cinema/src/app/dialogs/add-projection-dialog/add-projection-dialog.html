@@ -1,0 +1,55 @@
+<div class="p-4">
+
+  <h1 class="fs-1 mt-3 text-center fw-bold"> Add New Projection</h1>
+
+
+  <form [formGroup]="projectionForm">
+    <!-- Date and Time -->
+    <mat-form-field>
+      <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date" formControlName="date_time"
+             [min]="today">
+      <mat-datepicker-toggle matIconSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+      <ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="false"
+                               [enableMeridian]="false" [disableMinute]="false" [stepMinute]="30"
+                               [defaultTime]="[20,0,0]">
+      </ngx-mat-datetime-picker>
+    </mat-form-field>
+
+    <!-- Cinema Selection -->
+    <mat-form-field>
+      <mat-label>Cinema</mat-label>
+      <mat-select formControlName="id_cinema" (selectionChange)="onCinemaSelectionChange()">
+        <mat-option *ngFor="let cinema of availableCinemas" [value]="cinema.id">{{ cinema.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Hall Selection -->
+    <mat-form-field>
+      <mat-label>Hall</mat-label>
+      <mat-select formControlName="id_hall" placeholder="Select a Hall">
+        <mat-option [value]="">--</mat-option>
+        <mat-option *ngFor="let hall of availableHalls" [value]="hall.id">{{ hall.hallNumber }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Start Price -->
+    <mat-form-field>
+      <mat-label>Start Price</mat-label>
+      <input matInput type="number" formControlName="start_price" placeholder="Start Price">
+    </mat-form-field>
+
+    <!-- Submit Button -->
+    <div class="text-center">
+      <button type="submit" mat-raised-button color="primary" [disabled]="projectionForm.invalid" (click)="onSubmit()">
+        Add
+        Projection
+      </button>
+    </div>
+  </form>
+
+</div>
+
+<!--<div mat-dialog-actions class="d-flex justify-content-around mx-3">-->
+<!--  <button mat-raised-button color="accent" (click)="onNoClick()">Back</button>-->
+<!--  <button mat-raised-button color="primary" [mat-dialog-close]="selected" cdkFocusInitial>Buy Ticket</button>-->
+<!--</div>-->

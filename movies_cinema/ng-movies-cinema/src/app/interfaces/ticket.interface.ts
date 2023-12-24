@@ -20,6 +20,7 @@ export interface BoughtTicketInfo {
   customerId: number
   dateTime: string
   poster: string
+  movieId: number
   movieTitle: string
   specialRequirement: string
   ticketPrice: number
