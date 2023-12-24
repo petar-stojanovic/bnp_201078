@@ -1,0 +1,109 @@
+<h1 class="fs-1 my-5 text-center fw-bold"> Most Viewed Movies</h1>
+
+<table mat-table [dataSource]="mostViewedMovies" class="mat-elevation-z8 mb-3">
+
+  <ng-container matColumnDef="poster">
+    <th mat-header-cell *matHeaderCellDef> Poster</th>
+    <td mat-cell *matCellDef="let element">
+      <img [src]="element.poster" alt="Movie Poster">
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Title</th>
+    <td mat-cell *matCellDef="let element"> {{ element.title }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ticketCount">
+    <th mat-header-cell *matHeaderCellDef> Ticket Count</th>
+    <td mat-cell *matCellDef="let element"> {{ element.ticketCount }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="mostViewedMoviesColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: mostViewedMoviesColumns;"></tr>
+</table>
+
+
+<h1 class="fs-1 my-5 text-center fw-bold"> Most Popular Genre</h1>
+
+<table mat-table [dataSource]="mostPopularGenres" class="mat-elevation-z8 mb-3">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Genre Name</th>
+    <td mat-cell *matCellDef="let element"> {{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ticketCount">
+    <th mat-header-cell *matHeaderCellDef> Ticket Count</th>
+    <td mat-cell *matCellDef="let element"> {{ element.ticketCount }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="mostPopularGenreColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: mostPopularGenreColumns;"></tr>
+</table>
+
+
+<h1 class="fs-1 my-5 text-center fw-bold"> Most Frequent Customer</h1>
+<table mat-table [dataSource]="mostFrequentCustomers" class="mat-elevation-z8 mb-3">
+
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef> First Name</th>
+    <td mat-cell *matCellDef="let element"> {{ element.firstName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef> Last Name</th>
+    <td mat-cell *matCellDef="let element"> {{ element.lastName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ticketCount">
+    <th mat-header-cell *matHeaderCellDef> Ticket Count</th>
+    <td mat-cell *matCellDef="let element"> {{ element.ticketCount }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="mostFrequentCustomerColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: mostFrequentCustomerColumns;"></tr>
+</table>
+
+
+<h1 class="fs-1 my-5 text-center fw-bold"> Most Profitable Movie</h1>
+<table mat-table [dataSource]="mostProfitableMovies" class="mat-elevation-z8 mb-3">
+
+  <ng-container matColumnDef="poster">
+    <th mat-header-cell *matHeaderCellDef> Poster</th>
+    <td mat-cell *matCellDef="let element">
+      <img [src]="element.poster" alt="Movie Poster">
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Title</th>
+    <td mat-cell *matCellDef="let element"> {{ element.title }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="totalRevenue">
+    <th mat-header-cell *matHeaderCellDef> Total Revenue</th>
+    <td mat-cell *matCellDef="let element"> {{ element.totalRevenue | currency }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="mostProfitableMoviesColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: mostProfitableMoviesColumns;"></tr>
+</table>
+
+
+<h1 class="fs-1 my-5 text-center fw-bold"> Most Popular Movie Time</h1>
+<table mat-table [dataSource]="mostPopularMovieTimes" class="mat-elevation-z8 mb-3">
+
+  <ng-container matColumnDef="projectionTime">
+    <th mat-header-cell *matHeaderCellDef> Projection Time</th>
+    <td mat-cell *matCellDef="let element"> {{ element.projectionTime }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ticketCount">
+    <th mat-header-cell *matHeaderCellDef> Ticket Count</th>
+    <td mat-cell *matCellDef="let element"> {{ element.ticketCount }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="mostPopularMovieTimeColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: mostPopularMovieTimeColumns;"></tr>
+</table>

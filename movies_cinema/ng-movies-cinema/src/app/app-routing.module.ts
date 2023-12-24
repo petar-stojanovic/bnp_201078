@@ -5,6 +5,7 @@ import {MovieDetailsComponent} from "./components/movie-details/movie-details.co
 import {ProjectionDetailsComponent} from "./components/projection-details/projection-details.component";
 import {CustomerComponent} from "./components/customer/customer.component";
 import {AddMovieComponent} from "./components/add-movie/add-movie.component";
+import {StatisticsComponent} from "./components/statistics/statistics.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'customer',
     component: CustomerComponent
+  },
+  {
+    path: 'statistics',
+    component: StatisticsComponent
   },
   {
     path: '',

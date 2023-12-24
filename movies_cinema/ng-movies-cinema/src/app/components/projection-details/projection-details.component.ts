@@ -1,11 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Movie} from "../../interfaces/movie.interface";
-import {Projection} from "../../interfaces/projection.interface";
-import {ProjectionService} from "../../services/projection.service";
 import {MovieService} from "../../services/movie.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {DatePipe} from "@angular/common";
-import {forkJoin, last, switchMap} from "rxjs";
+import {forkJoin} from "rxjs";
 import {Ticket} from "../../interfaces/ticket.interface";
 import {TicketService} from "../../services/ticket.service";
 import {MatDialog} from "@angular/material/dialog";

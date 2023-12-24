@@ -52,6 +52,7 @@ import {AddMovieComponent} from './components/add-movie/add-movie.component';
 import {AddProjectionDialog} from "./dialogs/add-projection-dialog/add-projection-dialog";
 import {NgxMatDatetimePickerModule, NgxMatTimepickerModule} from "@angular-material-components/datetime-picker";
 import {NgxMatMomentModule} from "@angular-material-components/moment-adapter";
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {NgxMatMomentModule} from "@angular-material-components/moment-adapter";
     BuyTicketDialog,
     CreateCustomerDialog,
     AddMovieComponent,
-    AddProjectionDialog
+    AddProjectionDialog,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
