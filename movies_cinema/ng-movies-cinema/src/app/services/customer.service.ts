@@ -27,7 +27,6 @@ export class CustomerService {
   }
 
   createCustomer(firstName: string, lastName: string, sex: string, age: number) {
-    console.log({firstName, lastName, sex, age})
     return this._http.post<any>(`${this.path}`, {firstName, lastName, sex, age})
   }
 }

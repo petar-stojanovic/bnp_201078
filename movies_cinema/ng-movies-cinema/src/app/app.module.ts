@@ -48,6 +48,7 @@ import {HttpClientModule,HttpClient} from "@angular/common/http";
 import { CustomerComponent } from './components/customer/customer.component';
 import { BuyTicketDialog } from './dialogs/buy-ticket-dialog/buy-ticket-dialog';
 import { CreateCustomerDialog } from './dialogs/create-customer-dialog/create-customer-dialog';
+import { AddMovieComponent } from './components/add-movie/add-movie.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { CreateCustomerDialog } from './dialogs/create-customer-dialog/create-cu
     ProjectionDetailsComponent,
     CustomerComponent,
     BuyTicketDialog,
-    CreateCustomerDialog
+    CreateCustomerDialog,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,

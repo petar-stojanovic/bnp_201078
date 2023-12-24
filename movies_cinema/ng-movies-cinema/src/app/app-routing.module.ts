@@ -4,6 +4,7 @@ import {AllMoviesComponent} from "./components/all-movies/all-movies.component";
 import {MovieDetailsComponent} from "./components/movie-details/movie-details.component";
 import {ProjectionDetailsComponent} from "./components/projection-details/projection-details.component";
 import {CustomerComponent} from "./components/customer/customer.component";
+import {AddMovieComponent} from "./components/add-movie/add-movie.component";
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'movie/:movieId',
     component: MovieDetailsComponent
+  },
+  {
+    path: 'add',
+    component: AddMovieComponent
   },
   {
     path: 'customer',
