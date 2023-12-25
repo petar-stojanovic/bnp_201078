@@ -9,9 +9,11 @@ import org.springframework.stereotype.Repository
 @Repository
 interface TicketRepository : JpaRepository<Ticket, Long> {
 
+
+    @Transactional
     @Query(value = """
         select customer_buys_ticket(:customerId, :ticketId, :paymentMethod)
-    """,nativeQuery = true)
-    @Transactional
+    """, nativeQuery = true)
     fun customerBuysTicket(customerId: Int, ticketId: Int, paymentMethod: String)
+
 }
